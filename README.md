@@ -18,6 +18,7 @@ Three weeks. **15 sessions**. One source-grounded research assistant you can tes
 ## Contents
 
 - [Start here](#start-here)
+- [Get started with Claude Code](#get-started-with-claude-code)
 - [Find your way](#find-your-way)
 - [For coding assistants](#for-coding-assistants)
 - [What you will learn](#what-you-will-learn)
@@ -52,6 +53,120 @@ works too. HTTPS is above because it needs nothing configured first.
 Open **`00-START-HERE.ipynb`**. It lists every notebook in order and ticks what you have finished.
 
 New to the repo? [`SETUP.md`](SETUP.md) is the half-hour path to a green doctor. No API key is required: every scored notebook runs offline against `FakeLLM`. This repository is read-only for you — hand in to [the submissions repository](https://github.com/Gecko-Academy/dev3pack-submissions) instead (see [Handing in](#handing-in)); week 0 is here now, later weeks land on 14 / 21 / 28 September — `git pull` at the start of each week.
+
+## Get started with Claude Code
+
+Claude Code is an assistant that runs in your terminal. It reads the files in the
+folder you start it in. This repository carries five **skills** and three
+**subagents** written for this course. They are already in your clone. Nothing to
+install and nothing to switch on. A `git pull` keeps them current.
+
+**Optional, and never counted.** Every scored exercise runs offline, with no key
+and no assistant. Sessions 1 and 10 are the two that want one open.
+
+### Install it, then start it in the course folder
+
+```bash
+npm install -g @anthropic-ai/claude-code   # once; needs Node.js
+cd dev3pack-cohort-2026-09
+claude
+```
+
+**The folder matters.** It is everything the assistant can see. Start Claude Code
+anywhere else and none of this loads.
+
+To leave, type `/exit`. To start a fresh conversation, `/clear`. Long
+conversations drift.
+
+### What loads by itself
+
+Claude Code reads [`CLAUDE.md`](CLAUDE.md) on startup. The first line of that
+file is `@AGENTS.md`, which is an import and not a link, so
+[`AGENTS.md`](AGENTS.md) loads with it. That is the policy that stops an
+assistant writing your exercise for you.
+
+Check it worked: type `/context` and look for `CLAUDE.md` in what it lists. If it
+is not there, you are in the wrong folder.
+
+### How to use a skill
+
+A skill is a short set of instructions for one job. Describe your job in plain
+words and Claude picks the matching skill by itself. The first line of each skill
+says when to use it, and that line is how it chooses.
+
+> my check for session 4 is failing and I do not understand the output
+
+You can also name one outright, which is useful when it picks the wrong one:
+
+> use the check-my-exercise skill on ch04
+
+### How to call a subagent
+
+A subagent is a separate helper with its own, smaller set of tools. Ask for it by
+name:
+
+> ask the session-tutor to teach me session 6
+
+The tutor can only read and search files. It has no tool that writes. So it
+cannot change your notebook, not even by accident, which is the point of it.
+
+### One worked example
+
+Type this:
+
+> study session 6 with me
+
+Claude loads the `study-a-session` skill, reads every page in
+`units/en/unit2/session-06-retrieval-baseline/`, and explains retrieval one idea
+at a time. Every claim names the page it came from, like
+`units/en/unit2/session-06-retrieval-baseline/concepts-2.mdx`, so you can check
+it yourself. Then it stops and asks you two or three questions, and waits for
+your answers.
+
+When you are ready, it points you at that session's `notebook.ipynb` and stops
+there. You write the exercise.
+
+### What ships
+
+**Skills** (`.claude/skills/`):
+
+| Skill | Use it when |
+|---|---|
+| `study-a-session` | You want a session taught to you before you open its notebook. It reads the pages, explains them, and quizzes you. |
+| `check-my-exercise` | A check is red. It runs the check, reads the failure out loud, and names the page that teaches the missing idea. |
+| `fix-my-setup` | The course will not run. uv, the two extras, Ollama, a kernel holding old code, or `git pull` refusing to update. |
+| `hand-my-work-in` | You are ready to submit. Save, pull, check, submit, including the browser route if you have no `gh`. |
+| `run-a-project` | You are opening something in `projects/`. Both extras, the models to pull, and what `[live]` and `[recorded]` mean. |
+
+**Subagents** (`.claude/agents/`):
+
+| Subagent | Use it when |
+|---|---|
+| `session-tutor` | You want to be taught and quizzed. Read-only, so it cannot write your answer. |
+| `exercise-coach` | You want help reading a failing check. It runs the check and coaches; it never edits the cell. |
+| `setup-doctor` | Your machine is the problem. It diagnoses and gives you the one command to type next. |
+
+### What not to ask it for
+
+**The answer to a graded cell.** Every skill and subagent here refuses it, and so
+does `AGENTS.md`. They explain the idea, name the page that teaches it, and leave
+the writing to you.
+
+That is not a rule for its own sake. At demo day you explain your own work. An
+exercise your assistant wrote is one you cannot defend, and the marks were never
+the point.
+
+Also worth knowing: never paste a key, a token or a `.env` file into any chat,
+and never accept a diff you have not read.
+
+### This kit and the plugin are different things
+
+[`builder-kit/`](builder-kit/README.md) is a Claude Code **plugin**. You install
+it, it works in any repository, and its commands are namespaced.
+
+This kit is the opposite. It is files in the repository you already cloned, it
+works only here, and it is loaded the moment you start Claude Code in this
+folder. Use both if you like. They do not collide.
 
 ## Find your way
 
@@ -165,6 +280,7 @@ Where everything lives, and what a student receives.
 | `integrations/` | Worked integrations the sessions link into rather than re-explain. | day one |
 | `builder-kit/` | Templates a learner copies from when starting their own surface. | day one |
 | `final_assignment/` | The final's harness and the offline practice grader. The private question set is not here and never will be. | day one |
+| `capstone-template/` | Your own public capstone repository, as `uv run bootcamp capstone new ../my-capstone` writes it: the agent, the contract tests, the docs skeletons and a CI workflow. | day one |
 | `modules/` | A pointer only. The tree lived here until 9 Sep 2026; the file says where it went. | in part |
 | `AGENTS.md` | The policy a coding assistant reads before it edits. `CLAUDE.md` and the Cursor rules point at it rather than forking it. | day one |
 | `README.md` | This file. | day one |
@@ -176,6 +292,7 @@ Where everything lives, and what a student receives.
 | `uv.lock` | The resolved dependency set. CI installs from it frozen. | day one |
 | `.github/` | CI. It runs every notebook, the full test suite, and the generator's `--check`. | **never** |
 | `.claude-plugin/` | The plugin manifest that ships the course's own slash commands. | day one |
+| `.claude/` | Skills and subagents for Claude Code, already in the clone rather than installed. They teach a session, read a failing check and fix a setup; none writes an exercise answer. | day one |
 | `.cursor/` | Cursor rules, pointing at `AGENTS.md`. | day one |
 | `.env.example` | Every variable the course reads, with empty values. | day one |
 | `.gitignore` | What never enters git, including keys and a learner's own submissions. | day one |
@@ -208,7 +325,7 @@ more week lands and you `git pull`.
 
 | Arrives | Date | What is added |
 |---|---|---|
-| Week 0 | now | Everything above except the sessions: the twelve week-0 units, the welcome pages, the bonus track and the whole toolchain (50 paths). |
+| Week 0 | now | Everything above except the sessions: the twelve week-0 units, the welcome pages, the bonus track and the whole toolchain (52 paths). |
 | Week 1 | Mon 14 Sep | unit1 |
 | Week 2 | Mon 21 Sep | unit2 |
 | Week 3 | Mon 28 Sep | unit3 |
@@ -302,8 +419,8 @@ Optional. Never counted. Never required for the certificate.
 | 4 | [Long-term memory, consent, and deletion](units/en/bonus/b04-memory-consent-deletion/) |
 | 5 | [Deploy, evaluate, and tear down](units/en/bonus/b05-deploy-evaluate-teardown/) |
 
-- **[demos/](demos/)** — notebooks run in class, to run again afterwards: [an API request up close](demos/01_api_request_up_close.ipynb) (real calls to a public pet API), [one question three ways](demos/02_one_question_three_ways.ipynb) (prompt vs API vs MCP), [regex, parsing and retrieval](demos/03_regex_parsing_retrieval.ipynb), [Ollama on Colab](demos/04_ollama_on_colab.ipynb) for small laptops, [the coach up close](demos/05_the_coach_up_close.ipynb), [Jupyter for beginners](demos/06_jupyter_for_beginners.ipynb) [the coach in a chat](demos/07_the_coach_in_a_chat.ipynb), [the weekly challenge](demos/08_the_weekly_challenge.ipynb) and [RAG on your laptop](demos/09_rag_on_your_laptop.ipynb).
-- **[projects/](projects/)** — real-world projects on open data with a local model and ChromaDB. [Project 01: what are customers really saying?](projects/01-clothing-reviews/notebook.ipynb) Needs `uv sync --extra projects`.
+- **[demos/](demos/)** — notebooks run in class, to run again afterwards: [an API request up close](demos/01_api_request_up_close.ipynb) (real calls to a public pet API), [one question three ways](demos/02_one_question_three_ways.ipynb) (prompt vs API vs MCP), [regex, parsing and retrieval](demos/03_regex_parsing_retrieval.ipynb), [Ollama on Colab](demos/04_ollama_on_colab.ipynb) for small laptops, [the coach up close](demos/05_the_coach_up_close.ipynb), [Jupyter for beginners](demos/06_jupyter_for_beginners.ipynb) [the coach in a chat](demos/07_the_coach_in_a_chat.ipynb), [the weekly challenge](demos/08_the_weekly_challenge.ipynb), [RAG on your laptop](demos/09_rag_on_your_laptop.ipynb) and [your store, and a buyer](demos/10_your_store_and_buyer.ipynb).
+- **[projects/](projects/)** — real-world projects on open data with a local model and ChromaDB. [Project 01: what are customers really saying?](projects/01-clothing-reviews/notebook.ipynb) and [Project 02: what are these companies worried about?](projects/02-sec-filings/notebook.ipynb) (a RAG pipeline on real SEC filings, step by step, with a recorded lane for laptops without a model). Needs `uv sync --extra projects`.
 - **[ship-it/](ship-it/)** — turn the capstone into a surface somebody else can call, and a storefront an agent can buy from.
 - **[Demos and explainers](https://gecko-academy.github.io/dev3pack-cohort-2026-09/tracks/demos/introduction)** — Transformer Explainer, LLM Visualization, Tiktokenizer, Regexper, the Embedding Projector and more, each mapped to the session it helps.
 - **Two helpers inside every notebook:** `coach("…")` answers from the course pages, and `bootcamp_agent.patterns` builds a regular expression from plain words — `phrase("you must now")`, `near(one_of("send"), one_of("api key"))` — so nobody has to write regex by hand.

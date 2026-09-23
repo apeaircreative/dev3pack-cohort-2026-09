@@ -124,6 +124,10 @@ ALWAYS = (
     "projects",
     "ship-it",
     "final_assignment",
+    # What `bootcamp capstone new` copies into a student's own public
+    # repository. It runs in the student's clone, so the template has to be
+    # there; it holds no answer, only skeletons and the contract tests.
+    "capstone-template",
     "README.md",
     "SETUP.md",
     # The agent-facing index. Re-derived against the student's own tree after
@@ -139,6 +143,13 @@ ALWAYS = (
     "CLAUDE.md",
     ".cursor",
     ".claude-plugin",
+    # The skills and subagents a learner receives without installing anything.
+    # `builder-kit/` is a plugin: an install step and a namespace. This is the
+    # same help sitting in the clone instead, so it is already loaded the first
+    # time they start Claude Code in the course folder. Withhold it and the
+    # README's own "Get started with Claude Code" section, which ships, points
+    # at files nobody has.
+    ".claude",
     "pyproject.toml",
     "uv.lock",
     ".env.example",

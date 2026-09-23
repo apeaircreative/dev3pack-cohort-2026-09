@@ -52,6 +52,7 @@ from bootcamp_agent.curriculum import (  # noqa: E402
     unit_exercise_ids,
 )
 from bootcamp_agent.hints import FULL_MARKS  # noqa: E402
+from bootcamp_agent.weekly import challenge_points  # noqa: E402
 
 TOCTREE = UNITS_ROOT / "_toctree.yml"
 INDEX = ROOT / "docs" / "course-index.md"
@@ -141,6 +142,11 @@ REPO_MAP: tuple[tuple[str, str], ...] = (
         "here and never will be.",
     ),
     (
+        "capstone-template/",
+        "Your own public capstone repository, as `uv run bootcamp capstone new ../my-capstone` "
+        "writes it: the agent, the contract tests, the docs skeletons and a CI workflow.",
+    ),
+    (
         "modules/",
         "A pointer only. The tree lived here until 9 Sep 2026; the file says where it went.",
     ),
@@ -158,6 +164,11 @@ REPO_MAP: tuple[tuple[str, str], ...] = (
     ("uv.lock", "The resolved dependency set. CI installs from it frozen."),
     (".github/", "CI. It runs every notebook, the full test suite, and the generator's `--check`."),
     (".claude-plugin/", "The plugin manifest that ships the course's own slash commands."),
+    (
+        ".claude/",
+        "Skills and subagents for Claude Code, already in the clone rather than installed. They "
+        "teach a session, read a failing check and fix a setup; none writes an exercise answer.",
+    ),
     (".cursor/", "Cursor rules, pointing at `AGENTS.md`."),
     (".env.example", "Every variable the course reads, with empty values."),
     (".gitignore", "What never enters git, including keys and a learner's own submissions."),
@@ -902,6 +913,10 @@ def render_items() -> str:
         # in came back `score: null`, the leaderboard showed 0/0 for everybody,
         # and nothing here was failing.
         item = submission.resolve(chapter.chapter_id)
+        # A weekly challenge adds to its session's row rather than getting one of
+        # its own (founder ruling, 2026-09-22), so the row's ceiling carries it too:
+        # otherwise a full challenge reads as a score above its maximum.
+        row_max = None if item.max_score is None else item.max_score + challenge_points(item.id)
         items.append(
             {
                 "id": chapter.chapter_id,
@@ -912,7 +927,7 @@ def render_items() -> str:
                 "scored": item.scored,
                 "verifiable": item.verifiable,
                 "exercises": len(exercises),
-                "max_score": item.max_score,
+                "max_score": row_max,
             }
         )
     capstone = unit_exercise_ids(CAPSTONE.prefix)
