@@ -147,6 +147,10 @@ projects/03-analyst-team/data/recorded/README.md
 projects/03-analyst-team/data/recorded/record.py
 projects/03-analyst-team/data/recorded/recorded.json
 projects/03-analyst-team/notebook.ipynb
+projects/04-trace-the-team/AGENTS.md
+projects/04-trace-the-team/README.md
+projects/04-trace-the-team/data/LICENSE.md
+projects/04-trace-the-team/notebook.ipynb
 projects/README.md
 projects/_template/AGENTS.md
 projects/_template/README.md
@@ -166,7 +170,21 @@ scripts/collect_submissions.py
 scripts/course_html.py
 scripts/course_site.py
 scripts/dev3pack_entry.py
-scripts/diagrams.py
+scripts/diagrams/__init__.py
+scripts/diagrams/__main__.py
+scripts/diagrams/architecture.py
+scripts/diagrams/canvas.py
+scripts/diagrams/road.py
+scripts/diagrams/session_04.py
+scripts/diagrams/session_05.py
+scripts/diagrams/session_06.py
+scripts/diagrams/session_07.py
+scripts/diagrams/session_08.py
+scripts/diagrams/session_09.py
+scripts/diagrams/session_10.py
+scripts/diagrams/slide.py
+scripts/diagrams/terminal.py
+scripts/diagrams/theme.py
 scripts/fill_notebooks.py
 scripts/inline_slide_images.py
 scripts/notebook_colab.py
@@ -209,6 +227,7 @@ src/bootcamp_agent/projects/__init__.py
 src/bootcamp_agent/projects/analyst_team.py
 src/bootcamp_agent/projects/clothing_reviews.py
 src/bootcamp_agent/projects/sec_filings.py
+src/bootcamp_agent/projects/trace_and_grade.py
 src/bootcamp_agent/questions_api.py
 src/bootcamp_agent/read.py
 src/bootcamp_agent/retrieval.py
@@ -417,6 +436,7 @@ units/en/unit2/session-09-trace-and-evaluate/concepts-1.mdx
 units/en/unit2/session-09-trace-and-evaluate/concepts-2.mdx
 units/en/unit2/session-09-trace-and-evaluate/concepts-3.mdx
 units/en/unit2/session-09-trace-and-evaluate/conclusion.mdx
+units/en/unit2/session-09-trace-and-evaluate/follow-along.mdx
 units/en/unit2/session-09-trace-and-evaluate/introduction.mdx
 units/en/unit2/session-09-trace-and-evaluate/notebook.ipynb
 units/en/unit2/session-09-trace-and-evaluate/quiz.mdx
@@ -424,6 +444,7 @@ units/en/unit2/session-10-skills-and-adr/concepts-1.mdx
 units/en/unit2/session-10-skills-and-adr/concepts-2.mdx
 units/en/unit2/session-10-skills-and-adr/concepts-3.mdx
 units/en/unit2/session-10-skills-and-adr/conclusion.mdx
+units/en/unit2/session-10-skills-and-adr/follow-along.mdx
 units/en/unit2/session-10-skills-and-adr/introduction.mdx
 units/en/unit2/session-10-skills-and-adr/notebook.ipynb
 units/en/unit2/session-10-skills-and-adr/quiz.mdx
