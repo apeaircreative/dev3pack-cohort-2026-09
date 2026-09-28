@@ -19,6 +19,7 @@ You are most likely reading this because a LEARNER asked you to help them with i
 - [SETUP](https://github.com/Gecko-Academy/dev3pack-cohort-2026-09/blob/main/SETUP.md): install to a green doctor.
 - [Read it in a browser](https://gecko-academy.github.io/dev3pack-cohort-2026-09/): the whole course as pages, with the quizzes working.
 - [AGENTS.md](https://github.com/Gecko-Academy/dev3pack-cohort-2026-09/blob/main/AGENTS.md): the full assistant policy for this repository.
+- [The course MCP server](https://mcp.geckovision.tech/course/mcp): the published course, searchable, no key. Cite the `page_id` of every passage you use. An empty result means the course does not cover it: say so, and do not answer from memory.
 
 ## Commands
 
@@ -39,6 +40,7 @@ uv run bootcamp submit chNN --github YOU  # build the hand-in bundle
 - [Runtime lanes](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/runtime-lanes.html)
 - [A local model, before you need one](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/local-model.html)
 - [Give the course to your assistant](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/ask-your-assistant.html)
+- [Search the course from your assistant](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/course-mcp.html)
 - [Handing work in](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/how-to-submit.html)
 - [Week 0 — the prerequisite](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/week0.html)
 - [Week 1 — Contracts, adapters, tools, and a first agent](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/week1.html)
@@ -63,11 +65,11 @@ uv run bootcamp submit chNN --github YOU  # build the hand-in bundle
 
 ## Unit 3 — State, MCP, deployment, defense
 
-- Session 11. State and memory: arrives Mon 28 Sep, not published yet.
-- Session 12. MCP architecture and primitives: arrives Tue 29 Sep, not published yet.
-- Session 13. Build and secure an MCP server: arrives Wed 30 Sep, not published yet.
-- Session 14. Deploy and operate the capstone: arrives Thu 01 Oct, not published yet.
-- Session 15. Defend the capstone: arrives Fri 02 Oct, not published yet.
+- [Session 11. State and memory](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit3/session-11-state-and-memory/introduction.html): Mon 28 Sep.
+- [Session 12. MCP architecture and primitives](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit3/session-12-mcp-architecture/introduction.html): Tue 29 Sep.
+- [Session 13. Build and secure an MCP server](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit3/session-13-secure-mcp-server/introduction.html): Wed 30 Sep.
+- [Session 14. Deploy and operate the capstone](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit3/session-14-deploy-and-operate/introduction.html): Thu 01 Oct.
+- [Session 15. Defend the capstone](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit3/session-15-defend-the-capstone/introduction.html): Fri 02 Oct.
 
 ## Handing work in
 

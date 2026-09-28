@@ -1,0 +1,35 @@
+# Capstone tutorial
+
+**The complete tutorial lives in your capstone repository:
+[`CAPSTONE.md`](https://github.com/Gecko-Academy/Dev3Pack-Gecko-Capstone-Project/blob/main/CAPSTONE.md).** It is kept there so the instructions sit next to the code
+they describe, and there is one copy to follow.
+
+## The whole path
+
+- Keep your course folder up to date: the sessions and the capstone notebook live there.
+- Clone [the capstone repository](https://github.com/Gecko-Academy/Dev3Pack-Gecko-Capstone-Project) beside the course folder, as `my-capstone`, and make it yours:
+
+  ```bash
+  git clone https://github.com/Gecko-Academy/Dev3Pack-Gecko-Capstone-Project.git my-capstone
+  cd my-capstone
+  git remote rename origin upstream
+  gh repo create my-capstone --public --source . --remote origin --push
+  ```
+
+- `uv sync`, then `uv run pytest` and `uv run bootcamp capstone grade`.
+- Put a real model in `.env`, so your agent can do more than refuse.
+- After each session, add that session's piece to your repository.
+- Keep `docs/ISSUES.md` ranked, and copy its top three into the capstone notebook's `cap01-e5`.
+- Commit and push, then hand in from your repository: `uv run bootcamp capstone submit --github <you>`.
+- Read your score in `finals/<you>/result.json` in the submissions repository.
+
+## Which repository is which
+
+| Repository | What it holds | How it is handed in | Scored |
+|---|---|---|---|
+| **The course folder**, `dev3pack-cohort-2026-09` | Lessons, session notebooks, the capstone notebook, and the grader | From the course folder, as [How to submit](../../unit0/how-to-submit.mdx) shows (sessions and `cap01`) | Yes, as marks on the track |
+| **Your capstone**, `my-capstone` | Your agent, its tests, `docs/`, your README, `CAPSTONE.md`, and the optional store and buyer track in `projects/`. Public. | From inside it: `uv run bootcamp capstone submit --github <you>` | Yes, the final score |
+
+**Made your repository with `bootcamp capstone new` before 28 September?** It still
+works exactly as before. Keep it; `CAPSTONE.md` from section 5 onwards applies to it
+unchanged.

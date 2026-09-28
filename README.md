@@ -57,7 +57,7 @@ New to the repo? [`SETUP.md`](SETUP.md) is the half-hour path to a green doctor.
 ## Get started with Claude Code
 
 Claude Code is an assistant that runs in your terminal. It reads the files in the
-folder you start it in. This repository carries five **skills** and three
+folder you start it in. This repository carries seven **skills** and three
 **subagents** written for this course. They are already in your clone. Nothing to
 install and nothing to switch on. A `git pull` keeps them current.
 
@@ -137,6 +137,8 @@ there. You write the exercise.
 | `fix-my-setup` | The course will not run. uv, the two extras, Ollama, a kernel holding old code, or `git pull` refusing to update. |
 | `hand-my-work-in` | You are ready to submit. Save, pull, check, submit, including the browser route if you have no `gh`. |
 | `run-a-project` | You are opening something in `projects/`. Both extras, the models to pull, and what `[live]` and `[recorded]` mean. |
+| `ask-the-course` | You have a question about the course. It searches the hosted course server, cites the page, and says so when the course does not cover it. |
+| `ship-my-capstone` | You are creating, grading or handing in your capstone, or looking for your final score. |
 
 **Subagents** (`.claude/agents/`):
 
@@ -181,12 +183,14 @@ folder. Every link below opens the file itself, not a folder to search.
 | **see the ideas visually** | [Demos and explainers](https://gecko-academy.github.io/dev3pack-cohort-2026-09/tracks/demos/introduction) — interactive pages, mapped to sessions |
 | **ask from your phone** | [**@gecko_coach_bot**](https://t.me/gecko_coach_bot) on Telegram — answers from the course pages, names the page, no install |
 | **get unstuck** | `coach("your question")` in any notebook — answers from the course pages, offline, no key. [Demo 5](demos/05_the_coach_up_close.ipynb) shows how to use it |
+| **give your assistant the whole course** | the course MCP server, `https://mcp.geckovision.tech/course/mcp`. No key, no install. [How to connect it](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit0/course-mcp) |
 | **contribute** | [gecko-ai-coach](https://github.com/Gecko-Academy/gecko-ai-coach/blob/main/CONTRIBUTING.md) — add a question the coach gets wrong: ten minutes, no code |
 | **put an agent in a chat** | [`demos/07_the_coach_in_a_chat.ipynb`](demos/07_the_coach_in_a_chat.ipynb), then [the Telegram guide](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit1/session-05-deterministic-mini-agent/telegram-guide) |
 | **run RAG on your laptop** | [`demos/09_rag_on_your_laptop.ipynb`](demos/09_rag_on_your_laptop.ipynb) — today's retriever plus a local model, no key; a recorded run if you have no model |
 | **learn Jupyter from zero** | [`demos/06_jupyter_for_beginners.ipynb`](demos/06_jupyter_for_beginners.ipynb) — cells, run order, errors, in fifteen minutes |
 | **use a coding assistant well** | [Your coding assistant, step by step](https://gecko-academy.github.io/dev3pack-cohort-2026-09/tracks/coding-assistant/introduction) — Claude Code 101, five prompts, and where the line is |
 | **learn git, and contribute anywhere** | [Git, and your first contribution](https://gecko-academy.github.io/dev3pack-cohort-2026-09/tracks/first-contribution/introduction) — the nine commands, the errors, and where to find a first issue |
+| **ship your capstone** | [The capstone tutorial](https://gecko-academy.github.io/dev3pack-cohort-2026-09/unit2/capstone/tutorial): create, grade, submit, and read your score |
 | **hand in** | `uv run bootcamp submit chNN --github <you> --push` — see [Handing in](#handing-in) |
 | **see the leaderboard** | [`TRACK.md` in the submissions repository](https://github.com/Gecko-Academy/dev3pack-submissions/blob/main/TRACK.md) |
 | **run a model on a small laptop** | [`demos/04_ollama_on_colab.ipynb`](demos/04_ollama_on_colab.ipynb) |
@@ -212,6 +216,11 @@ with `submissions/<you>/`. It merges on its own once its check is green.
 ## For coding assistants
 
 Read [`AGENTS.md`](AGENTS.md) first. `CLAUDE.md` and `.cursor/rules/bootcamp.mdc` point at it — do not fork the policy.
+
+To answer a question about the course, search it. The course MCP server at
+`https://mcp.geckovision.tech/course/mcp` serves every published page with no
+key. Cite the `page_id` of each passage you use. An empty result means the
+course does not cover it: say so instead of guessing.
 
 Then read in this order:
 
@@ -292,7 +301,7 @@ Where everything lives, and what a student receives.
 | `uv.lock` | The resolved dependency set. CI installs from it frozen. | day one |
 | `.github/` | CI. It runs every notebook, the full test suite, and the generator's `--check`. | **never** |
 | `.claude-plugin/` | The plugin manifest that ships the course's own slash commands. | day one |
-| `.claude/` | Skills and subagents for Claude Code, already in the clone rather than installed. They teach a session, read a failing check and fix a setup; none writes an exercise answer. | day one |
+| `.claude/` | Skills and subagents for Claude Code, already in the clone rather than installed. They teach a session, read a failing check, fix a setup, answer from the course and walk the capstone hand-in; none writes an exercise answer. | day one |
 | `.cursor/` | Cursor rules, pointing at `AGENTS.md`. | day one |
 | `.env.example` | Every variable the course reads, with empty values. | day one |
 | `.gitignore` | What never enters git, including keys and a learner's own submissions. | day one |
@@ -393,17 +402,17 @@ Each live session is one directory under `units/en/unit1/`, `unit2/` or `unit3/`
 | 8 | Wed 23 Sep | [Loops and graphs](units/en/unit2/session-08-loops-and-graphs/) | Chain vs loop vs graph; illegal edges do not move | [notebook](units/en/unit2/session-08-loops-and-graphs/notebook.ipynb) | — |
 | 9 | Thu 24 Sep | [Trace and evaluate](units/en/unit2/session-09-trace-and-evaluate/) | A redacted event log and named error buckets | [notebook](units/en/unit2/session-09-trace-and-evaluate/notebook.ipynb) | — |
 | 10 | Fri 25 Sep | [Skills and an ADR](units/en/unit2/session-10-skills-and-adr/) | A `SKILL.md` and a decision that names its reversal | [notebook](units/en/unit2/session-10-skills-and-adr/notebook.ipynb) | — |
-| 11 | Mon 28 Sep | State and memory — not yet | Session state, a retention policy, cross-user isolation | notebook — not yet | — |
-| 12 | Tue 29 Sep | MCP architecture — not yet | Host / client / server; a surface read as claims | notebook — not yet | — |
-| 13 | Wed 30 Sep | Build and secure an MCP server — not yet | A fetch guard that refuses *before* it fetches | notebook — not yet | — |
-| 14 | Thu 1 Oct | Deploy and operate — not yet | A smoke test and the rollback sentence | notebook — not yet | — |
-| 15 | Fri 2 Oct | Defend the capstone — opens Fri 02 Oct | A demo, then a failure diagnosed from your own traces | — | — |
+| 11 | Mon 28 Sep | [State and memory](units/en/unit3/session-11-state-and-memory/) | Session state, a retention policy, cross-user isolation | [notebook](units/en/unit3/session-11-state-and-memory/notebook.ipynb) | — |
+| 12 | Tue 29 Sep | [MCP architecture](units/en/unit3/session-12-mcp-architecture/) | Host / client / server; a surface read as claims | [notebook](units/en/unit3/session-12-mcp-architecture/notebook.ipynb) | — |
+| 13 | Wed 30 Sep | [Build and secure an MCP server](units/en/unit3/session-13-secure-mcp-server/) | A fetch guard that refuses *before* it fetches | [notebook](units/en/unit3/session-13-secure-mcp-server/notebook.ipynb) | — |
+| 14 | Thu 1 Oct | [Deploy and operate](units/en/unit3/session-14-deploy-and-operate/) | A smoke test and the rollback sentence | [notebook](units/en/unit3/session-14-deploy-and-operate/notebook.ipynb) | — |
+| 15 | Fri 2 Oct | [Defend the capstone](units/en/unit3/session-15-defend-the-capstone/) | A demo, then a failure diagnosed from your own traces | — | — |
 
 Session 13 uses an instructor-hosted Gecko MCP surface; the URL is handed out in class.
 
 ## Capstone and certificate
 
-A **source-grounded developer research assistant**: it answers from `data/corpus/`, cites document ids, and refuses when nothing supports the claim. You rebuild `src/bootcamp_agent/` in the session notebooks, then compare against the shipped package. Brief: [units/en/unit2/capstone/](units/en/unit2/capstone/).
+A **source-grounded developer research assistant**: it answers from `data/corpus/`, cites document ids, and refuses when nothing supports the claim. You rebuild `src/bootcamp_agent/` in the session notebooks, then compare against the shipped package. Brief: [units/en/unit2/capstone/](units/en/unit2/capstone/). You build it in your own copy of [the capstone repository](https://github.com/Gecko-Academy/Dev3Pack-Gecko-Capstone-Project); its [`CAPSTONE.md`](https://github.com/Gecko-Academy/Dev3Pack-Gecko-Capstone-Project/blob/main/CAPSTONE.md) has every command, from the clone to your final score.
 
 [`final_assignment/`](final_assignment/) is a template that scores 30% as shipped — it refuses correctly and answers nothing. Pass both gates (aggregate bar and every **critical** question) and the course issues an Ed25519-signed certificate anyone can verify. Details: [`final_assignment/README.md`](final_assignment/README.md).
 
