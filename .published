@@ -74,6 +74,8 @@ demos/08_the_weekly_challenge.ipynb
 demos/09_rag_on_your_laptop.ipynb
 demos/10_your_store_and_buyer.ipynb
 demos/11_memory_at_scale.ipynb
+demos/12_meet_a_stranger.ipynb
+demos/12_tiny_server.py
 demos/README.md
 demos/fixtures/rag-recorded.json
 demos/fixtures/telegram-getupdates.json
@@ -186,6 +188,7 @@ scripts/diagrams/session_08.py
 scripts/diagrams/session_09.py
 scripts/diagrams/session_10.py
 scripts/diagrams/session_11.py
+scripts/diagrams/session_12.py
 scripts/diagrams/slide.py
 scripts/diagrams/terminal.py
 scripts/diagrams/theme.py
@@ -201,6 +204,7 @@ scripts/verify_submission.py
 ship-it/README.md
 ship-it/fixtures/README.md
 ship-it/fixtures/geckocoffee-store.b64
+ship-it/fixtures/gspike2038-store.b64
 ship-it/notebook.ipynb
 ship-it/seed/RUNBOOK.md
 src/bootcamp_agent/__init__.py
@@ -285,6 +289,7 @@ units/en/tracks/projects/introduction.mdx
 units/en/tracks/ship-it/introduction.mdx
 units/en/tracks/workspaces/introduction.mdx
 units/en/unit0/ask-your-assistant.mdx
+units/en/unit0/connect-your-assistant.mdx
 units/en/unit0/course-mcp.mdx
 units/en/unit0/get-settled.mdx
 units/en/unit0/how-to-submit.mdx
@@ -456,6 +461,7 @@ units/en/unit2/session-10-skills-and-adr/introduction.mdx
 units/en/unit2/session-10-skills-and-adr/notebook.ipynb
 units/en/unit2/session-10-skills-and-adr/quiz.mdx
 units/en/unit2/session-10-skills-and-adr/weekly-challenge.mdx
+units/en/unit3/gecko-capstone.mdx
 units/en/unit3/session-11-state-and-memory/concepts-1.mdx
 units/en/unit3/session-11-state-and-memory/concepts-2.mdx
 units/en/unit3/session-11-state-and-memory/concepts-3.mdx
@@ -468,6 +474,9 @@ units/en/unit3/session-12-mcp-architecture/concepts-1.mdx
 units/en/unit3/session-12-mcp-architecture/concepts-2.mdx
 units/en/unit3/session-12-mcp-architecture/concepts-3.mdx
 units/en/unit3/session-12-mcp-architecture/conclusion.mdx
+units/en/unit3/session-12-mcp-architecture/follow-along.mdx
+units/en/unit3/session-12-mcp-architecture/img/api-vs-mcp.png
+units/en/unit3/session-12-mcp-architecture/img/host-client-server.png
 units/en/unit3/session-12-mcp-architecture/introduction.mdx
 units/en/unit3/session-12-mcp-architecture/notebook.ipynb
 units/en/unit3/session-12-mcp-architecture/quiz.mdx
@@ -493,6 +502,7 @@ units/en/unit3/session-15-defend-the-capstone/concepts-2.mdx
 units/en/unit3/session-15-defend-the-capstone/conclusion.mdx
 units/en/unit3/session-15-defend-the-capstone/introduction.mdx
 units/en/unit3/session-15-defend-the-capstone/quiz.mdx
+units/en/unit3/start-here.mdx
 uv.lock
 workspaces/README.md
 workspaces/news-to-telegram/fixtures/hn-front-page.json
