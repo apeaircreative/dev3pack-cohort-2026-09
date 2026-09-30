@@ -23,6 +23,8 @@ from diagrams import (  # noqa: E402
     SESSION_10,
     SESSION_11,
     SESSION_12,
+    SESSION_13,
+    WEEK3_PROJECTS,
     capstone,
     loop_vs_graph,
     model_rag_agent_team,
@@ -37,7 +39,7 @@ def main() -> None:
     model_rag_agent_team()
     project_02()
     capstone()
-    for both in (loop_vs_graph, rag_family, vector_indexes, *SESSION_12[:2]):
+    for both in (loop_vs_graph, rag_family, vector_indexes, *SESSION_12[:2], *SESSION_13[:2]):
         both()
         both(DARK)
     for dark_only in (
@@ -49,6 +51,8 @@ def main() -> None:
         + SESSION_10
         + SESSION_11
         + SESSION_12[2:]
+        + SESSION_13[2:]
+        + WEEK3_PROJECTS
     ):
         dark_only(DARK)
     # one road per session day: the badge moves, the geometry does not

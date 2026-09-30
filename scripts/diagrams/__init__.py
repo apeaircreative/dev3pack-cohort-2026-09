@@ -26,6 +26,7 @@ from .session_09 import SESSION_09
 from .session_10 import SESSION_10
 from .session_11 import SESSION_11
 from .session_12 import SESSION_12
+from .session_13 import SESSION_13
 from .slide import Slide
 from .terminal import Terminal
 from .theme import (
@@ -44,6 +45,7 @@ from .theme import (
     palette,
     use_theme,
 )
+from .week3_projects import WEEK3_PROJECTS
 
 # Registered last so `diagrams.PAGE` follows `use_theme` the way it did when
 # every drawing lived in this one namespace.
@@ -86,7 +88,9 @@ __all__ = [
     "SESSION_10",
     "SESSION_11",
     "SESSION_12",
+    "SESSION_13",
     "UNIT_08",
+    "WEEK3_PROJECTS",
     "Canvas",
     "Slide",
     "Terminal",
